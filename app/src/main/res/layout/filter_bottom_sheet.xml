@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <TextView
+            android:id="@+id/filter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Filter by"
+            android:textSize="17sp"
+            android:fontFamily="@font/montserrat_semibold"/>
+
+        <Button
+            android:id="@+id/clear_text"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="CLEAR" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/closed_issue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Closed"
+        android:fontFamily="@font/montserrat_medium"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        />
+    <Button
+        android:id="@+id/open_issue"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_medium"
+        android:text="Open" />
+    <Button
+        android:id="@+id/milestone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Milestone"
+        android:fontFamily="@font/montserrat_medium"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        />
+    <Button
+        android:id="@+id/labels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Labels"
+        android:fontFamily="@font/montserrat_medium"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        />
+    <Button
+        android:id="@+id/applyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:text="Apply Filter"
+        android:fontFamily="@font/montserrat_bold"
+        />
+</LinearLayout>
