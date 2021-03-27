@@ -9,7 +9,6 @@ import android.view.MenuItem;
 
 import com.example.githubissuetracker.R;
 import com.example.githubissuetracker.fragments.HomeFragment;
-import com.example.githubissuetracker.fragments.IssueFragment;
 import com.example.githubissuetracker.fragments.NotificationFragment;
 import com.example.githubissuetracker.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
