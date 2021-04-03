@@ -11,6 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="8dp"
         >
 
         <TextView
@@ -21,7 +22,7 @@
             android:paddingBottom="10dp"
             android:text="Filter by"
             android:textSize="17sp"
-            android:fontFamily="@font/montserrat_semibold"/>
+            android:fontFamily="@font/montserrat_medium"/>
 
         <Button
             android:id="@+id/clear_text"
@@ -73,5 +74,6 @@
         android:paddingTop="15dp"
         android:text="Apply Filter"
         android:fontFamily="@font/montserrat_bold"
+        style="?attr/materialButtonOutlinedStyle"
         />
 </LinearLayout>

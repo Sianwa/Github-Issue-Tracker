@@ -1,11 +1,11 @@
 package com.example.githubissuetracker.activities;
 
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.example.githubissuetracker.R;
 import com.example.githubissuetracker.fragments.HomeFragment;
@@ -51,4 +51,6 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
     };
+
+
 }
