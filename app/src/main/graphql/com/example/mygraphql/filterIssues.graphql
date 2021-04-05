@@ -1,0 +1,42 @@
+query GetRepoIssuesOpen($repo_name: String!) {
+  viewer {
+    repository(name: $repo_name) {
+      issues(last: 10, filterBy: {states: [OPEN]}) {
+        edges {
+          node {
+            id
+            author {
+              login
+            }
+            number
+            title
+            publishedAt
+            state
+          }
+        }
+      }
+    }
+  }
+}
+
+query GetRepoIssuesClosed($repo_name: String!) {
+  viewer {
+    repository(name: $repo_name) {
+      issues(first: 10, filterBy: {states: [CLOSED]}) {
+        edges {
+          node {
+            id
+            author {
+              login
+            }
+            number
+            title
+            publishedAt
+            state
+          }
+        }
+      }
+    }
+  }
+}
+

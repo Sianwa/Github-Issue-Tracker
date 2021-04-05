@@ -11,6 +11,8 @@
         android:text="Settings"
         android:fontFamily="@font/montserrat_medium"
         android:textSize="17sp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         />

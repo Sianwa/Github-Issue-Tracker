@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context=".activities.RepoIssuesActivity">
 
-
     <TextView
         android:id="@+id/titleIssue"
         android:layout_width="wrap_content"
@@ -21,12 +20,13 @@
         android:textSize="20sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/search_bar"
+        android:id="@+id/search_edit_frame"
         android:layout_below="@id/titleIssue"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingRight="20dp"
         android:paddingLeft="20dp"
+        android:imeOptions="actionSearch"
         android:paddingTop="10dp"
         android:paddingBottom="20dp"
         app:startIconDrawable="@drawable/ic_baseline_search_24"
@@ -38,17 +38,23 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/search_editText"
+            android:lines="1"
             />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@id/search_bar"
-        android:id="@+id/MyrepoIssues"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_below="@+id/search_edit_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"/>
-
+        android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_below="@id/search_bar"
+                android:id="@+id/MyrepoIssues"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </RelativeLayout>
 

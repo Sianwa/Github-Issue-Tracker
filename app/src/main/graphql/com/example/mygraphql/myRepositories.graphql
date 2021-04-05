@@ -1,0 +1,10 @@
+query GetMyRepos {
+     viewer{
+     name
+      	repositories(last:10){
+        nodes{
+          name
+        }
+      }
+    }
+}

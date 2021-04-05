@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
@@ -16,21 +17,20 @@
             android:padding="10dp">
 
             <TextView
-                android:id="@+id/issueAuthor"
+                android:id="@+id/commentAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kelsey Makale"
                 android:textSize="14sp"
                 android:padding="5dp"
                 android:fontFamily="@font/montserrat_medium"
                 />
             <TextView
-                android:id="@id/issueComment"
+                android:id="@+id/issueBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam,quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
                 android:textSize="17sp"
                 android:padding="5dp"
+                android:textColor="@color/black"
                 android:fontFamily="@font/montserrat_medium"/>
 
 

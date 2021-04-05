@@ -1,0 +1,23 @@
+query GetRepoIssues($repo_name: String!) {
+  viewer {
+    repository(name: $repo_name) {
+      issues(last: 3) {
+        edges {
+          node {
+            id
+            repository{
+                     name
+            }
+            author {
+              login
+            }
+            number
+            title
+            publishedAt
+            state
+          }
+        }
+      }
+    }
+  }
+}
