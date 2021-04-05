@@ -1,0 +1,29 @@
+query GetIssueDetails($id:Int!, $repo_name:String!){
+  viewer{
+    repository(name:$repo_name){
+      issue(number:$id){
+        author{
+          login
+        }
+        title
+        state
+        labels(first:2){
+          nodes{
+               name
+                }
+              }
+        comments(last:5){
+          edges{
+            node{
+              author{
+                login
+              }
+              bodyText
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

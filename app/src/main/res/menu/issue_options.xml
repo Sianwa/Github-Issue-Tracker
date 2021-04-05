@@ -7,13 +7,13 @@
         android:title="Close Issue"
         />
     <item
-        android:id="@+id/assign"
+        android:id="@+id/reopenIssue"
         android:enabled="true"
-        android:title="Assign"/>
+        android:title="Reopen Issue"/>
     <item
-        android:id="@+id/addMilestone"
+        android:id="@+id/addComment"
         android:enabled="true"
-        android:title="Add Milestone"/>
+        android:title="Add Comment"/>
     <item
         android:id="@+id/addLabel"
         android:enabled="true"

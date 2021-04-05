@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubIssueTracker">
         <activity android:name=".activities.SingleIssueActivity"></activity>
-        <activity android:name=".activities.RepoIssuesActivity" />
+        <activity android:name=".activities.RepoIssuesActivity"
+            android:windowSoftInputMode="stateHidden"/>
         <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

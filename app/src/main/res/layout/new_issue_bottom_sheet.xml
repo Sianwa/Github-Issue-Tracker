@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     android:orientation="vertical">
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
-            android:text="Add New Issue"
+            android:text="Add New Comment"
             android:textSize="17sp"
             android:fontFamily="@font/montserrat_semibold"/>
         <Button
@@ -30,32 +30,23 @@
 
     </RelativeLayout>
 
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/outlinedTextField"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Issue Title"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_medium"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/outlinedTextArea"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:hint="Add comment to issue...."
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/commentbody"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="start|left"
+            android:inputType="textMultiLine"
+            android:overScrollMode="always"
+            android:scrollbarStyle="insideInset"
+            android:scrollbars="vertical"
+            android:lines="6"
             android:fontFamily="@font/montserrat_medium"
             />
 
@@ -67,7 +58,8 @@
         android:layout_height="wrap_content"
         android:paddingBottom="15dp"
         android:paddingTop="15dp"
-        android:text="Add issue"
+        android:text="Add comment"
+        android:textColor="@color/black"
         android:fontFamily="@font/montserrat_bold"
         />
 

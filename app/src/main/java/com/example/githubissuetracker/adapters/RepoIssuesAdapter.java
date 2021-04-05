@@ -7,8 +7,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -21,10 +24,12 @@ import com.example.mygraphql.GetRepoIssuesQuery;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
-public class RepoIssuesAdapter extends RecyclerView.Adapter<RepoIssuesAdapter.MyIssuesViewHolder>{
+public class RepoIssuesAdapter extends RecyclerView.Adapter<RepoIssuesAdapter.MyIssuesViewHolder> implements Filterable {
     List<GetRepoIssuesQuery.Edge> myRepoIssues;
+    List<GetRepoIssuesQuery.Edge> myFilteredRepoIssues;
     Context context;
 
     public RepoIssuesAdapter(List<GetRepoIssuesQuery.Edge> myRepoIssues, Context context) {
@@ -51,6 +56,9 @@ public class RepoIssuesAdapter extends RecyclerView.Adapter<RepoIssuesAdapter.My
         //on item click
         holder.parentLayout.setOnClickListener(v->{
             Intent SingleIssueIntent = new Intent(context, SingleIssueActivity.class);
+            SingleIssueIntent.putExtra("id", query.node().number());
+            SingleIssueIntent.putExtra("repo_name", query.node().repository().name());
+            SingleIssueIntent.putExtra("issue_id", query.node().id());
             context.startActivity(SingleIssueIntent);
         });
 
@@ -58,7 +66,59 @@ public class RepoIssuesAdapter extends RecyclerView.Adapter<RepoIssuesAdapter.My
 
     @Override
     public int getItemCount() {
-        return myRepoIssues.size();
+        int listSize = myRepoIssues.size();
+        if(listSize == 0){
+            Toast.makeText(context, "No records to show!", Toast.LENGTH_SHORT).show();
+        }
+        return listSize;
+
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter(){
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                String charString = constraint.toString();
+                if(charString.isEmpty()){
+                     myRepoIssues = myRepoIssues;
+                }else{
+                    List<GetRepoIssuesQuery.Edge> filteredList = new ArrayList<>();
+                    for(GetRepoIssuesQuery.Edge row : myRepoIssues){
+                        if(row.node().title().toLowerCase().contains(charString.toLowerCase())){
+                            filteredList.add(row);
+                        }
+                    }
+                    myRepoIssues = filteredList;
+                }
+                FilterResults results = new FilterResults();
+                results.values = myRepoIssues;
+                return results;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                    myRepoIssues = ((List<GetRepoIssuesQuery.Edge>) results.values);
+                    notifyDataSetChanged();
+            }
+        };
+    }
+
+    public void ft(String filterOption){
+        if(filterOption.isEmpty()){
+            Log.e("Apollo", "Filter cannot be empty" + filterOption);
+        }else{
+            List<GetRepoIssuesQuery.Edge> filteredList = new ArrayList<>();
+            for(GetRepoIssuesQuery.Edge row : myRepoIssues){
+                if(row.node().state().rawValue().equals(filterOption)){
+                    filteredList.add(row);
+                }
+            }
+            myRepoIssues = filteredList;
+            notifyDataSetChanged();
+        }
+
     }
 
     public class MyIssuesViewHolder extends RecyclerView.ViewHolder {

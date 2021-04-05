@@ -2,7 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
@@ -29,6 +29,7 @@
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/purple_700"
             android:layout_alignParentEnd="true"
             android:fontFamily="@font/montserrat_semibold"
             android:text="CLEAR" />
@@ -40,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Closed"
+        android:textColor="@color/black"
         android:fontFamily="@font/montserrat_medium"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         />
@@ -48,6 +50,7 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
         android:fontFamily="@font/montserrat_medium"
         android:text="Open" />
     <Button
@@ -55,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Milestone"
+        android:textColor="@color/black"
         android:fontFamily="@font/montserrat_medium"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         />
@@ -63,17 +67,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Labels"
+        android:textColor="@color/black"
         android:fontFamily="@font/montserrat_medium"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         />
-    <Button
-        android:id="@+id/applyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:text="Apply Filter"
-        android:fontFamily="@font/montserrat_bold"
-        style="?attr/materialButtonOutlinedStyle"
-        />
+
 </LinearLayout>

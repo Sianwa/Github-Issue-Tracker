@@ -44,7 +44,7 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.MyRepoViewHold
         holder.projectText.setText(query.name());
         holder.parentLayout.setOnClickListener(v -> {
             Intent intent = new Intent(context, RepoIssuesActivity.class);
-            //Intent.putExtra("repo_name",query.name());
+            intent.putExtra("repo_name",query.name());
             context.startActivity(intent);
         });
     }
