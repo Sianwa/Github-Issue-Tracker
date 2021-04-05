@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingRight="20dp"
+    android:paddingLeft="20dp"
+    android:orientation="vertical"
+    tools:context=".fragments.ProfileFragment">
+
+    <TextView
+        android:id="@+id/pageTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="Your Profile"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:textSize="20sp" />
+    <ListView
+        android:id="@+id/profileOptions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#B8B8AE"
+        android:dividerHeight="1dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_light"
+        android:text="2021 -Version 1.0"
+        android:textSize="14sp"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:layout_gravity="center"/>
+
+
+</LinearLayout>

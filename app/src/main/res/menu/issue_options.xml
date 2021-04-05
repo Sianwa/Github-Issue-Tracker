@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/closeIssue"
+        android:enabled="true"
+        android:title="Close Issue"
+        />
+    <item
+        android:id="@+id/reopenIssue"
+        android:enabled="true"
+        android:title="Reopen Issue"/>
+    <item
+        android:id="@+id/addComment"
+        android:enabled="true"
+        android:title="Add Comment"/>
+    <item
+        android:id="@+id/addLabel"
+        android:enabled="true"
+        android:title="Add Label"/>
+
+</menu>

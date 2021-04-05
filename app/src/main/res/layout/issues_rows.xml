@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/issue_parent_layout"
+    android:orientation="vertical">
+
+    <!---TODO: Image view to show issue status {open, closed}.-->
+
+    <TextView
+        android:id="@+id/issueTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notifications are never displayed in their fragment"
+        android:fontFamily="@font/montserrat_medium"
+        android:textSize="17sp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/issueAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Doe"
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:id="@+id/issueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPEN"
+            android:fontFamily="@font/montserrat_light"
+            android:textSize="14sp"
+            android:layout_alignParentEnd="true"
+            />
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>
