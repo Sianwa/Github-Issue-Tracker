@@ -28,7 +28,7 @@ public class ApolloConnector {
             final Request request = chain.request()
                     .newBuilder()
                     //TODO: store token in shared preferences
-                    .addHeader("Authorization", "Bearer b18a8462ceadbef61cb7c97440049d8b6a4f96de")
+                    .addHeader("Authorization", "Bearer <token>")
                     .build();
             return chain.proceed(request);
         }
