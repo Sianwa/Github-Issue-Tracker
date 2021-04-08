@@ -27,14 +27,19 @@ import org.jetbrains.annotations.NotNull;
 
 public class NewIssueSheetDialog extends BottomSheetDialogFragment {
 
-    String issue_id = "MDU6SXNzdWU4NDgyMDc3ODA=";
+    String issue_id;
     String issue_comment;
+    Bundle myBundle;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v= inflater.inflate(R.layout.new_issue_bottom_sheet,container, false);
         Button addIssue = v.findViewById(R.id.add_issue);
         TextInputLayout textInputLayout = v.findViewById(R.id.outlinedTextArea);
+
+        myBundle = new Bundle();
+        myBundle = getArguments();
+        issue_id = myBundle.getString("issue_id");
 
         addIssue.setOnClickListener(v1 -> {
             issue_comment = textInputLayout.getEditText().getText().toString();

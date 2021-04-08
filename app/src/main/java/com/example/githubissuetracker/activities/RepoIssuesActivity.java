@@ -22,6 +22,7 @@ import com.example.githubissuetracker.adapters.RepoIssuesAdapter;
 import com.example.githubissuetracker.fragments.dialogs.BottomSheetDialog;
 import com.example.githubissuetracker.network.ApolloConnector;
 import com.example.mygraphql.GetRepoIssuesQuery;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -79,31 +80,35 @@ public class RepoIssuesActivity extends AppCompatActivity implements BottomSheet
             }
         });
 
+        fetchData();
+    }
+
+    private void fetchData() {
         //get repository issues
         ApolloConnector.setupClient().query(new GetRepoIssuesQuery(repo_name))
                 .enqueue(new ApolloCall.Callback<GetRepoIssuesQuery.Data>() {
-            @Override
-            public void onResponse(@NotNull Response<GetRepoIssuesQuery.Data> response) {
-                Log.e("Apollo", "Data received" );
+                    @Override
+                    public void onResponse(@NotNull Response<GetRepoIssuesQuery.Data> response) {
+                        Log.e("Apollo", "Data received" );
 
-                //update ui on UI thread
-                RepoIssuesActivity.this.runOnUiThread(() -> {
-                    repoIssuesAdapter = new RepoIssuesAdapter(response.getData().viewer().repository().issues().edges(),getBaseContext());
-                    recyclerView.setHasFixedSize(true);
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
-                    recyclerView.setAdapter(repoIssuesAdapter);
+                        //update ui on UI thread
+                        RepoIssuesActivity.this.runOnUiThread(() -> {
+                            repoIssuesAdapter = new RepoIssuesAdapter(response.getData().viewer().repository().issues().edges(),getBaseContext());
+                            recyclerView.setHasFixedSize(true);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getBaseContext()));
+                            recyclerView.setAdapter(repoIssuesAdapter);
 
-                    swipeRefreshLayout.setRefreshing(false);
+                            swipeRefreshLayout.setRefreshing(false);
 
+                        });
+                    }
+
+                    @Override
+                    public void onFailure(@NotNull ApolloException e) {
+                        Log.e("Apollo", "Error", e);
+
+                    }
                 });
-            }
-
-            @Override
-            public void onFailure(@NotNull ApolloException e) {
-                Log.e("Apollo", "Error", e);
-
-            }
-        });
     }
 
     private void filterList(String filterText) {
@@ -136,6 +141,7 @@ public class RepoIssuesActivity extends AppCompatActivity implements BottomSheet
                         Log.e("Apollo", "Error", e);
 
                     }
+
                 });
     }
 

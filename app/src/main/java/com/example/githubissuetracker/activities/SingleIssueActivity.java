@@ -44,6 +44,7 @@ public class SingleIssueActivity extends AppCompatActivity {
     RecyclerView commentsRecyclerview;
     SwipeRefreshLayout swipeContainer;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +57,7 @@ public class SingleIssueActivity extends AppCompatActivity {
         repo_name = bundle.getString("repo_name");
         id = bundle.getInt("id");
         issue_id = bundle.getString("issue_id");
-        Log.e("Apollo", "Intent: " + repo_name + id + issue_id);
+
 
         //componets
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -167,6 +168,11 @@ public class SingleIssueActivity extends AppCompatActivity {
                 return true;
             case R.id.addComment:
                 NewIssueSheetDialog dialog = new NewIssueSheetDialog();
+                //data for the bottomsheet
+                Bundle newBundle = new Bundle();
+                newBundle.putString("issue_id", issue_id);
+
+                dialog.setArguments(newBundle);
                 dialog.show(getSupportFragmentManager(),
                         "ModalBottomSheet");
                 return true;
